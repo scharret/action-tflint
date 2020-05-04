@@ -6,7 +6,7 @@ RUN apk --no-cache --update add bash git \
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
-RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin/
+RUN wget -O - -q https://raw.githubusercontent.com/scharret/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin/
 
 RUN wget -O - -q $(wget -q https://api.github.com/repos/terraform-linters/tflint/releases/latest -O - | grep -o -E "https://.+?_linux_amd64.zip") > tflint.zip \
     && unzip tflint.zip && rm tflint.zip \
